@@ -1,0 +1,451 @@
+:root {
+	--dark-blue-100: #609ED4;
+	--dark-blue-200: #356EA9;
+	--dark-blue-300: #0A3871;
+	--dark-blue-400: #072B61;
+	--dark-blue-500: #052051;
+	--light-blue-100: #F3F5FC;
+	--light-blue-200: #EFF1FA;
+	--light-blue-300: #E9ECF8;
+	--light-blue-400: #AAB2D5;
+	--light-blue-500: #757FB2;
+	--gray-100: #CED4DA;
+	--gray-200: #ADB5BD;
+	--gray-300: #868E96;
+	--gray-400: #495057;
+	--gray-500: #343A40;
+}
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+html {
+	width: 100%;
+	height: 100vh;
+}
+body {
+   background: var(--light-blue-100);
+   line-height: 1.5;
+   font-weight: 400;
+	height: 100%;
+   font-family: 'Roboto', serif;
+}
+header {
+   width: 100%;
+   height: auto;
+}
+header img#top {
+	position: absolute;
+   left: 2rem;
+   top: 2rem;
+}
+/** Se repiten mucho **/
+.position-relative {	position: relative; }
+.position-absolute {	position: absolute; }
+.position-sticky { position: sticky; }
+.position-fixed {	position: fixed; }
+.display-block { display: block; }
+.display-inline-block {	display: inline-block; }
+.display-flex { display: flex; }
+.display-grid { display: grid; }
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+.justify-content-start { justify-content: flex-start; }
+.justify-content-end { justify-content: flex-end; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-around { justify-content: space-around; }
+.align-content-start { align-content: flex-start; }
+.align-content-end { align-content: flex-end; }
+.align-content-center { align-content: center; }
+.align-content-between { align-content: space-between; }
+.align-items-center { align-items: center; }
+.align-items-start { align-items: start; }
+.align-items-end { align-items: end; }
+.align-items-flex-start { align-items: flex-start; }
+.align-items-flex-end { align-items: flex-end; }
+.gap-0 { gap: 0; }
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 1rem; }
+.gap-4 { gap: 1.5rem; }
+.gap-5 { gap: 3rem; }
+.float-left { loat: left; }
+.float-right { loat: right; }
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-scroll { overflow: scroll; }
+/**
+ * Se repiten
+*/
+.contenedor {
+   padding: 1rem 0;
+   width: 100%;
+   overflow-y: auto;
+   height: 100vh;
+   display: grid;
+   place-items: center;
+}
+.contenedor h3 {
+	margin: 0;
+	padding: 6px 0;
+	font-size: 1.2rem;
+	text-align: center;
+}
+.contenedor h3 small {
+	font-size: 12px;
+	font-style: italic;
+}
+.contenedor .inicio,
+.contenedor .agregar_palabra, 
+.contenedor .iniciar_juego {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	box-sizing: border-box;
+}
+.contenedor .agregar_palabra .palabra {
+	grid-template-columns: 1fr 300px;
+	gap: 1rem;
+	height: 400px;
+	position: relative;
+}
+.contenedor .agregar_palabra .lista_palabras ul {
+	overflow-y: auto;
+	height: 300px;
+}
+.contenedor .agregar_palabra .lista_palabras ul li {
+	margin: 0.3rem;
+	padding: 3px 12px;
+	border-radius: .3rem;
+	cursor: pointer;
+	background-color: var(--dark-blue-300);
+	color: #FFF;
+}
+.contenedor .agregar_palabra .lista_palabras ul li:hover {
+	background-color: var(--dark-blue-500);
+}
+.contenedor .iniciar_juego .contenido-juego {
+	height: 100%;
+}
+.ahorcado {
+	text-align: center;
+	width: 200px;
+	height: 308px;
+	margin: 0 auto 1rem auto;
+}
+/** dibujo **/
+.ahorcado .color {
+	background: var(--dark-blue-400);
+	display: none;
+}
+.ahorcado .base {
+	width: 100%;
+	height: 3px;
+	left: 0;
+	bottom: 2px;
+	position: absolute;
+}
+.ahorcado .palo {
+	width: 3px;
+	height: 300px;
+	margin: 0 auto 0 60px;
+}
+.ahorcado .palo-arriba {
+	height: 3px;
+	width: 100px;
+	margin-left: 60px;
+}
+.ahorcado .soga {
+	width: 3px;
+	height: 13px;
+	left: 156px;
+}
+.ahorcado .persona {
+	height: 210px;
+	width: 80px;
+	top: 16px;
+	left: 116px;
+} 
+.ahorcado .persona .cabeza {
+	border: 6px solid var(--dark-blue-400);
+	width: 50px;
+	height: 50px;
+	top: 0;
+	left: 15px;
+	border-radius: 10em;
+	display: none;
+}
+.ahorcado .persona .cuerpo {
+	height: 90px;
+	width: 5px;
+	top: 48px;
+	left: 38px;
+}
+.ahorcado .persona .brazo,
+.ahorcado .persona .pierna {
+	width: 5px;
+	height: 50px;
+	top: 65px;
+}
+.ahorcado .persona .pierna {
+	height: 80px;
+	top: 130px
+}
+.ahorcado .persona .brazo.brazo-izq,
+.ahorcado .persona .pierna.pierna-izq {
+	transform: rotate(25deg);
+	left: 26px;
+}
+.ahorcado .persona .brazo.brazo-der,
+.ahorcado .persona .pierna.pierna-der {
+	transform: rotate(-25deg);
+	left: 50px;
+}
+.ahorcado .persona .pierna.pierna-izq {
+	left: 22px;
+}
+.ahorcado .persona .pierna.pierna-der {
+	left: 54px;
+}
+/***/
+.contenedor .iniciar_juego .contenido-juego .palabras,
+.contenedor .iniciar_juego .contenido-juego .escritas {
+	padding: 1rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contenedor .iniciar_juego .contenido-juego .palabras {
+	flex-wrap: wrap;
+}
+.contenedor .iniciar_juego .contenido-juego .palabras .line {
+	background-color: transparent!important;
+}
+.contenedor .iniciar_juego .contenido-juego .palabras .line,
+.contenedor .iniciar_juego .contenido-juego .escritas span {
+	text-transform: uppercase;
+	display: block;
+}
+.contenedor .iniciar_juego .contenido-juego .palabras .line {
+	font-size: 1.5rem;
+	font-weight: 600;
+	width: 2.4rem;
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	margin: 0 6px;
+	color: var(--dark-blue-300);
+	border-bottom: 3px solid var(--dark-blue-300);
+	position: relative;
+	overflow: hidden;
+}
+.contenedor .iniciar_juego .contenido-juego .palabras .line > span {
+	position: absolute;
+	top: 1rem;
+	transform: translate(-.5rem, 2rem);
+	transition: transform 2s ease;
+}
+.contenedor .iniciar_juego .contenido-juego .palabras .line.add > span {
+	transition: transform 2s ease;
+	transform: translate(-.5rem, -1rem);
+}
+.contenedor .iniciar_juego .contenido-juego .escritas {
+	height: 26px;
+}
+.contenedor .iniciar_juego .contenido-juego .escritas span {
+	font-size: 0.9rem;
+	padding:2px 4px;
+	margin: 4px;
+}
+
+.contenedor textarea {
+	resize: none;
+	border: 1px solid var(--light-blue-100);
+	width: 100%;
+	height: 50%;
+	box-sizing: border-box;
+	margin-bottom: 0.4rem;
+	border-radius: .4rem;
+	padding: 1rem;
+	font-size: 1.3rem;
+	color: var(--dark-blue-300);
+	box-shadow: 0 0 1rem #0001;
+}
+.contenedor textarea::placeholder {
+	color: var(--dark-blue-100);
+	opacity: .5;
+	font-family: Roboto, serif;
+}
+.contenedor .botones {
+	width: 680px;
+	margin: 1rem auto .5rem auto;
+	display: flex; 
+	justify-content: space-between;
+	align-items: center;
+}
+.boton {
+	height: 67px;
+	line-height: 19px;
+	border-radius: .4rem;
+	cursor: pointer;
+	outline: transparent;
+	padding: 0 40px;
+	width: max-content;
+	font-family: Roboto, serif;
+	font-weight: 500;
+	position: relative;
+	overflow: hidden;
+	display: block;
+	margin: 0 auto 10px auto;
+}
+.contenedor .botones .boton {
+	display: inline-block;
+}
+.contenedor .boton.azul {
+	--bg-color: var(--dark-blue-300);
+	background-color: var(--bg-color);
+	color: #FFF;
+}
+.contenedor .boton.azul:hover {
+	background-color: var(--dark-blue-400);
+	color: #FFF;
+}
+.contenedor .boton.gris {
+	--bg-color: var(--light-blue-200);
+	background-color: var(--bg-color);
+	border-color: var(--dark-blue-300);
+	color: var(--dark-blue-300);
+}
+.contenedor .boton.gris:hover {
+	background-color: var(--light-blue-300);
+	color: var(--dark-blue-300);
+}
+/**
+ * Modal
+*/
+.mascara {
+   position: fixed;
+   width: 100%;
+   height: 100vh;
+   inset: 0;
+   display: flex;
+   align-content: center;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255,255,255,.6);
+   z-index: 99;
+}
+#mymodal .modal {
+	position: absolute;
+	width: 420px;
+	background-color: #fff;
+	padding: 2rem 1rem;
+	box-shadow: 0 0 12px #0003; 
+	border-radius: .4rem;
+	z-index: 3;
+	text-align: center;
+}
+#mymodal .modal #titulo {
+	font-weight: 600;
+	font-size: 1.2rem;
+	padding: .3rem;
+}
+#mymodal .modal #contenido {
+	font-size: 1.6rem;
+	padding: .3rem 0;
+	margin-bottom: 1rem;
+}
+#mymodal .modal #botones .boton {
+	padding: 6px 1rem;
+	height: max-content;
+	background-color: #3F964D;
+	color: #FFF;
+}
+
+.teclado .teclas {
+	width: 100%;
+	display: none;
+}
+
+.teclado .teclas > input {
+	display: inline-block;
+	height: 2rem;
+	min-width: 2rem;
+	line-height: 2rem;
+	border: none;
+	outline: none;
+	background: #dde1e7;
+	color: grey;
+	font-size: 1.5rem;
+	cursor: default;
+	margin: 0.4rem 0;
+	border-radius: .4rem
+}
+.teclado .teclas > input:focus{
+  font-size: 19px;
+  color: #3498db;
+}
+.teclado .teclas > input[value="SPACE"]{
+  width: 60%;
+}
+@media screen and (max-width: 992px) {
+	.contenedor .agregar_palabra {
+		width: 90%;
+	}
+	.contenedor .agregar_palabra .palabra {
+		grid-template-columns: 1fr 300px;
+	}
+	.contenedor .botones {
+		width: 100%;
+	}
+}
+@media screen and (max-width: 768px) {
+	.contenedor .agregar_palabra {
+		width: 90%;
+	}
+	.contenedor .agregar_palabra .palabra,
+	.teclado .teclas {
+		display: block;
+	}
+	.contenedor .agregar_palabra .palabra #nueva_palabra {
+		height: 140px;
+	}
+	.contenedor .botones {
+		width: 100%;
+		display: block;
+	} 
+	.teclado .teclas > input {
+		height: 50px;
+		min-width: 50px;
+		line-height: 50px;
+	}
+}
+@media (min-width: 320px) and (max-width: 425px) {
+	.contenedor .iniciar_juego,
+	.contenedor .agregar_palabra {
+		width: 90%;
+	}
+	.contenedor .agregar_palabra .palabra,
+	.teclado .teclas {
+		display: block;
+	}
+	.contenedor .agregar_palabra .palabra #nueva_palabra {
+		height: 140px;
+		width: 100%;
+	}
+	.contenedor .botones {
+		width: 100%;
+		display: block;
+	} 
+	.teclado .teclas > input {
+		font-size:1rem;
+		height: 30px;
+		min-width: 24px;
+		line-height: 30px;
+	}
+}
